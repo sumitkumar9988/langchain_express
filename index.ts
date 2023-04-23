@@ -17,7 +17,11 @@ interface ChatRequestBody {
   history: any[];
 }
 
-app.post("/", async (req: Request, res: Response) => {
+app.get("/", (req: Request, res: Response) => {
+  res.status(200).json({ message: "Hello World" });
+});
+
+app.post("/api/chat", async (req: Request, res: Response) => {
   const { question, history } = req.body as ChatRequestBody;
 
   console.log("chat:question:", question);
